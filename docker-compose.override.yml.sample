@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  wizeshop:
+    command: exit
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+  mongo:
+    image: mongo:4.4.4-bionic
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: wize-shop
+    ports:
+      - 27017:27017
+volumes:
+  node_modules: {}

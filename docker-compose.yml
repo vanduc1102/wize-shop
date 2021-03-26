@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  wizeshop:
+    image: wizeshop
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+  mongo:
+    image: mongo:4.4.4-bionic
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: wize-shop
+    ports:
+      - 27017:27017
